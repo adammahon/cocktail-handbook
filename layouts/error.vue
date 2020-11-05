@@ -10,32 +10,53 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 
 import BaseLayout from '@/layouts/base.vue';
 
+/**
+ * The error layout
+ * @public
+ *
+ * @class
+ * @extends {Vue}
+ */
 @Component({
     components: {
         BaseLayout
     },
-    head(this: Layout): object {
+    /**
+     * Method that sets various html metadata fields for the layout
+     * @public
+     *
+     * @param {Error} this - The error layout instance
+     *
+     * @returns {void}
+     */
+    head(this: Error): object {
         return {
             title: this.errorMessage
         };
     }
 })
-export default class Layout extends Vue {
+export default class Error extends Vue {
+    /**
+     * The type of error that occured
+     * @public
+     *
+     * @type {object} - The error that occured
+     */
     @Prop({ default: null })
-    readonly error!: { statusCode: number } | null;
+    public readonly error!: { statusCode: number } | null;
 
-    get errorMessage() {
+    /**
+     * The error message to display
+     * @public
+     *
+     * @returns {string} - The error message to display
+     */
+    public get errorMessage(): string {
         if (this.error && this.error.statusCode === 404) {
             return '404 Not Found';
         }
 
         return 'An error occurred';
-    }
-
-    head() {
-        return {
-            title: this.errorMessage
-        };
     }
 }
 </script>

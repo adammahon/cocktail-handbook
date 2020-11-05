@@ -43,14 +43,15 @@ export default {
     css: [],
 
     // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-    plugins: [{ src: '@/plugins/axios' }],
+    plugins: [{ src: '@/plugins/axios' }, { src: '@/plugins/vuex-orm-axios' }],
 
     // Auto import components (https://go.nuxtjs.dev/config-components)
     components: true,
 
-    //
+    // Environment variables that should be publicly exposed
     publicRuntimeConfig: {
-        baseApiUrl: process.env.BASE_API_URL
+        // eslint-disable-next-line no-template-curly-in-string
+        baseApiUrl: '${BASE_API_URL}/${API_KEY}'
     },
 
     // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
@@ -84,6 +85,9 @@ export default {
         customVariables: ['~/assets/variables.scss'],
         theme: {
             dark: false,
+            options: {
+                customProperties: true
+            },
             themes: {
                 dark: {
                     primary: colors.blue.darken2,
@@ -99,5 +103,7 @@ export default {
     },
 
     // Build Configuration (https://go.nuxtjs.dev/config-build)
-    build: {}
+    build: {
+        transpile: ['vuex-orm-decorators', 'vuex-module-decorators']
+    }
 };

@@ -23,10 +23,16 @@
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/axios": "^5.12.2",
+    "@vuex-orm/core": "^0.36.3",
+    "@vuex-orm/plugin-axios": "^0.9.3",
     "core-js": "^3.6.5",
+    "debounce": "^1.2.0",
     "nuxt": "^2.14.6",
     "vue-class-component": "^7.2.6",
-    "vue-property-decorator": "^9.0.2"
+    "vue-property-decorator": "^9.0.2",
+    "vuex-class": "^0.3.2",
+    "vuex-module-decorators": "^1.0.1",
+    "vuex-orm-decorators": "^1.2.5"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.6",
@@ -36,6 +42,7 @@
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/vuetify": "^1.11.2",
+    "@types/debounce": "^1.2.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
