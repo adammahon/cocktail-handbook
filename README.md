@@ -23,3 +23,15 @@ $ npm run dev
 # build for production and launch server
 $ npm run build
 $ npm run start
+```
+
+## Environment Variables
+
+The following environment variables are required to run the application:
+
+```bash
+APP_PORT=3000
+APP_HOST=0.0.0.0
+API_KEY=1
+BASE_API_URL=https://www.thecocktaildb.com/api/json/v1
+```
